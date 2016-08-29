@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "E9B5DE9246E3AEC505516F3A899102904F8D1AB4",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "E9B5DE9246E3AEC505516F3A899102904F8D1AB4" : 0,
+    "8EDB20605646D5AB973F8F295A85CBFDF790F55A" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "DF24549A-F12D-4F7C-B4D1-1D2D6BFC5F48",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "E9B5DE9246E3AEC505516F3A899102904F8D1AB4" : "The-Entertainment\/",
+    "8EDB20605646D5AB973F8F295A85CBFDF790F55A" : ".."
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "ContainerViewSlideMenu",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ContainerViewSlideMenu.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ShaktiSingh95\/IOS_Development.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8EDB20605646D5AB973F8F295A85CBFDF790F55A"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ShaktiSingh95\/The-Entertainment.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E9B5DE9246E3AEC505516F3A899102904F8D1AB4"
+    }
+  ]
+}

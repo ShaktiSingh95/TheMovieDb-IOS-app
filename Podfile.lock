@@ -1,0 +1,21 @@
+PODS:
+  - Alamofire (3.4.1)
+  - Kingfisher (2.4.2)
+  - SlideMenuControllerSwift (2.2.2)
+  - SwiftyJSON (2.3.2)
+
+DEPENDENCIES:
+  - Alamofire (~> 3.4)
+  - Kingfisher (~> 2.4)
+  - SlideMenuControllerSwift
+  - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
+  Kingfisher: 05bf8d04408aaa70fcd2c8c81b9f1d0f1ad313dd
+  SlideMenuControllerSwift: e257221100c39d49edccaaeb0238b55a0c67953a
+  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+
+PODFILE CHECKSUM: 49922d8c676b17e60cf0af2f0ea1c7889e693f79
+
+COCOAPODS: 1.0.1
