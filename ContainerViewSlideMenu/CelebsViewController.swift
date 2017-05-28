@@ -13,7 +13,7 @@ class CelebsViewController: SlideMenuController {
         super.viewDidLoad()
         self.addRightBarButtonWithImage(UIImage(named: Constants.imageIdentifiers.rightOptionMenuButtonImage)!)
     }
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
     override func awakeFromNib(){

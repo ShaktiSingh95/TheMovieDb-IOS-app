@@ -14,8 +14,8 @@ class MovieMainViewController: UIViewController,UICollectionViewDelegate,UIColle
     @IBOutlet weak var movieCategoryTableView: UITableView!
     var placeHolderImage = UIImage(named:Constants.imageIdentifiers.placeHolderImage)
     let customView=CustomImageView()
-    var defaults = NSUserDefaults.standardUserDefaults()
-    private var tableContent = ["Upcoming","Top Rated","Most Popular"]
+    var defaults = UserDefaults.standard
+    fileprivate var tableContent = ["Upcoming","Top Rated","Most Popular"]
     var popularMovies = [Movie](){
     
         didSet{
@@ -25,7 +25,7 @@ class MovieMainViewController: UIViewController,UICollectionViewDelegate,UIColle
         }
     
     }
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.closeRight()
     }
@@ -51,14 +51,14 @@ class MovieMainViewController: UIViewController,UICollectionViewDelegate,UIColle
        // defaults.setBool(true, forKey: )
         
     }
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return popularMovies.count
     }
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.cellIdentifiers.movieMainCollectionCell, forIndexPath: indexPath) as! CollectionViewCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifiers.movieMainCollectionCell, for: indexPath) as! CollectionViewCell
         if let posterImageLink =  popularMovies[indexPath.row].posterImagePath{
             
-            cell.customImageView.backgroundImageView.kf_setImageWithURL(NSURL(string:posterImageLink), placeholderImage: placeHolderImage)
+            cell.customImageView.backgroundImageView.kf_setImageWithURL(URL(string:posterImageLink), placeholderImage: placeHolderImage)
             
         }
         cell.customImageView.likeImageView.image=UIImage(named: Constants.imageIdentifiers.toBeLiked)
@@ -70,24 +70,24 @@ class MovieMainViewController: UIViewController,UICollectionViewDelegate,UIColle
         }
         return cell
     }
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         print("qqqqq")
         
     }
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableContent.count
     }
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(Constants.cellIdentifiers.movieMainTableCell)!
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifiers.movieMainTableCell)!
         cell.textLabel?.text = tableContent[indexPath.row]
         return cell
     }
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let row = indexPath.row
-        let destinationVc = self.storyboard?.instantiateViewControllerWithIdentifier(Constants.viewControllerIdentifiers.requestedMoviesVc) as! RequestedMovieListViewController
+        let destinationVc = self.storyboard?.instantiateViewController(withIdentifier: Constants.viewControllerIdentifiers.requestedMoviesVc) as! RequestedMovieListViewController
         switch row{
             
         case 0 : destinationVc.query = Constants.ApiSearchQueries.MovieRelated.upcomingMovies
@@ -99,7 +99,7 @@ class MovieMainViewController: UIViewController,UICollectionViewDelegate,UIColle
             
             
         }
-        self.showViewController(destinationVc, sender: nil)
+        self.show(destinationVc, sender: nil)
         
     }
     

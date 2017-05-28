@@ -38,13 +38,13 @@ class RequestedMovieListViewController: UITableViewController,CustomImageViewDel
     func invertLike() {
         
     }
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return moviesFetched.count
     }
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(Constants.cellIdentifiers.requestedListMovieCell) as! RequestedTypeTableViewCell
-        cell.customImageView.backgroundImageView.kf_setImageWithURL(NSURL(string: moviesFetched[indexPath.row].posterImagePath!), placeholderImage: UIImage(named: Constants.imageIdentifiers.placeHolderImage))
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifiers.requestedListMovieCell) as! RequestedTypeTableViewCell
+        cell.customImageView.backgroundImageView.kf_setImageWithURL(URL(string: moviesFetched[indexPath.row].posterImagePath!), placeholderImage: UIImage(named: Constants.imageIdentifiers.placeHolderImage))
         cell.cellInfo.text = moviesFetched[indexPath.row].overview
         cell.cellInfo.numberOfLines = 6
         return cell

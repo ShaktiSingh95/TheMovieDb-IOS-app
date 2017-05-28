@@ -13,28 +13,28 @@ class DataToBeSaved {
     static var likedTvShowsIds=[Int]()
     static var likedMoviesIds=[Int]()
 
-    class func appendToCelebsId(id:Int){
+    class func appendToCelebsId(_ id:Int){
         
         likedCelebsIds.append(id)
     }
-    class func appendToTvShowsId(id:Int){
+    class func appendToTvShowsId(_ id:Int){
         
         likedTvShowsIds.append(id)
     }
-    class func appendToMoviesId(id:Int){
+    class func appendToMoviesId(_ id:Int){
         
         likedMoviesIds.append(id)
     }
 
-    class func deleteFromTvShowsId(id:Int){
+    class func deleteFromTvShowsId(_ id:Int){
         
         
     }
-    class func deleteFromCelebsId(id:Int){
+    class func deleteFromCelebsId(_ id:Int){
         
         
     }
-    class func deleteFromMoviesId(id:Int){
+    class func deleteFromMoviesId(_ id:Int){
         
         
     }

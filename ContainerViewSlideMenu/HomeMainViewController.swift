@@ -45,7 +45,7 @@ class HomeMainViewController: UIViewController,UICollectionViewDelegate,UICollec
     }
     
     var placeHolderImage = UIImage(named:Constants.imageIdentifiers.placeHolderImage)
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.closeRight()
     }
@@ -79,7 +79,7 @@ class HomeMainViewController: UIViewController,UICollectionViewDelegate,UICollec
         }
         
     }
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
                 if collectionView == popularCelebsCollectionView{
         
@@ -97,25 +97,25 @@ class HomeMainViewController: UIViewController,UICollectionViewDelegate,UICollec
         
                 }
     }
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == popularCelebsCollectionView{
             
-            let destinationVc = self.storyboard?.instantiateViewControllerWithIdentifier(Constants.viewControllerIdentifiers.celebDetailsVc) as! CelebdetailViewController
+            let destinationVc = self.storyboard?.instantiateViewController(withIdentifier: Constants.viewControllerIdentifiers.celebDetailsVc) as! CelebdetailViewController
             destinationVc.celeb = self.popularCelebs[indexPath.row]
-            showViewController(destinationVc, sender: nil)
+            show(destinationVc, sender: nil)
             
         }
     }
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         
         if collectionView == popularCelebsCollectionView{
             
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.cellIdentifiers.homePopularCelebsCell, forIndexPath: indexPath) as! CollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifiers.homePopularCelebsCell, for: indexPath) as! CollectionViewCell
             //cell.imageView.kf_setImageWithURL(NSURL(string: popularCelebs[indexPath.row].profileImagePath!), placeholderImage: placeHolderImage)
             if let posterImageLink = popularCelebs[indexPath.row].profileImagePath{
                 
-                cell.customImageView.backgroundImageView.kf_setImageWithURL(NSURL(string: posterImageLink), placeholderImage: placeHolderImage)
+                cell.customImageView.backgroundImageView.kf_setImageWithURL(URL(string: posterImageLink), placeholderImage: placeHolderImage)
             
             }
             if let name = popularCelebs[indexPath.row].name{
@@ -125,17 +125,17 @@ class HomeMainViewController: UIViewController,UICollectionViewDelegate,UICollec
             }
             cell.customImageView.likeImageView.image=UIImage(named: Constants.imageIdentifiers.toBeLiked)
            cell.customImageView.id=popularCelebs[indexPath.row].id
-            cell.customImageView.delegate=self
+            cell.customImageView.delegate=self as! CustomImageViewDelegate
             return cell
             
         }
         else if collectionView == popularMoviesCollectionView{
             
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.cellIdentifiers.homePopularMovieCell, forIndexPath: indexPath) as! CollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifiers.homePopularMovieCell, for: indexPath) as! CollectionViewCell
             
             if let posterImageLink =  popularMovies[indexPath.row].posterImagePath{
                 
-                cell.customImageView.backgroundImageView.kf_setImageWithURL(NSURL(string:posterImageLink), placeholderImage: placeHolderImage)
+                cell.customImageView.backgroundImageView.kf_setImageWithURL(URL(string:posterImageLink), placeholderImage: placeHolderImage)
             
             }
             cell.customImageView.likeImageView.image=UIImage(named: Constants.imageIdentifiers.toBeLiked)
@@ -151,10 +151,10 @@ cell.customImageView.id=popularMovies[indexPath.row].id
         }
         else{
             
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.cellIdentifiers.homePopularTvCell, forIndexPath: indexPath) as! CollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifiers.homePopularTvCell, for: indexPath) as! CollectionViewCell
             if let posterImageLink = popularTvShows[indexPath.row].posterImagePath{
             
-            cell.customImageView.backgroundImageView.kf_setImageWithURL(NSURL(string: posterImageLink), placeholderImage: placeHolderImage)
+            cell.customImageView.backgroundImageView.kf_setImageWithURL(URL(string: posterImageLink), placeholderImage: placeHolderImage)
                 
             }
             cell.customImageView.likeImageView.image=UIImage(named: Constants.imageIdentifiers.toBeLiked)

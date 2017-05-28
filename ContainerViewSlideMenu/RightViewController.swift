@@ -16,7 +16,7 @@ class rightViewController: UITableViewController {
         super.viewDidLoad()
         self.rightTableView.delegate=self
     }
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewControllersInStack = self.navigationController?.viewControllers
         
@@ -24,9 +24,9 @@ class rightViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
         let viewControllerOnTop = viewControllersInStack![(viewControllersInStack?.count)!-1]
         
         if indexPath.row == 0{
@@ -38,7 +38,7 @@ class rightViewController: UITableViewController {
             }
                 
             else{
-                let destinationVc = self.storyboard?.instantiateViewControllerWithIdentifier(Constants.viewControllerIdentifiers.homeVc) as! HomeViewController
+                let destinationVc = self.storyboard?.instantiateViewController(withIdentifier: Constants.viewControllerIdentifiers.homeVc) as! HomeViewController
                 
                 showViewController(destinationVc, sender: nil)
                 
@@ -51,7 +51,7 @@ class rightViewController: UITableViewController {
                 
             }
             else{
-                let destinationVc = self.storyboard?.instantiateViewControllerWithIdentifier(Constants.viewControllerIdentifiers.moviesVc) as! MovieViewController
+                let destinationVc = self.storyboard?.instantiateViewController(withIdentifier: Constants.viewControllerIdentifiers.moviesVc) as! MovieViewController
                 showViewController(destinationVc, sender: nil)
                 
             }
@@ -66,7 +66,7 @@ class rightViewController: UITableViewController {
                 
             }
             else{
-            let destinationVc = self.storyboard?.instantiateViewControllerWithIdentifier(Constants.viewControllerIdentifiers.tvVc) as! TvViewController
+            let destinationVc = self.storyboard?.instantiateViewController(withIdentifier: Constants.viewControllerIdentifiers.tvVc) as! TvViewController
             showViewController(destinationVc, sender: nil)
             }
             
@@ -79,7 +79,7 @@ class rightViewController: UITableViewController {
                 
             }
             else{
-                let destinationVc = self.storyboard?.instantiateViewControllerWithIdentifier(Constants.viewControllerIdentifiers.celebsVc) as! CelebsViewController
+                let destinationVc = self.storyboard?.instantiateViewController(withIdentifier: Constants.viewControllerIdentifiers.celebsVc) as! CelebsViewController
                 showViewController(destinationVc, sender: nil)
             }
             

@@ -42,19 +42,19 @@ class RequestedTvListViewController: UITableViewController {
     
     
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tvFetched.count
     }
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(Constants.cellIdentifiers.requestedListTvCell) as! RequestedTypeTableViewCell
-        cell.customImageView.backgroundImageView.kf_setImageWithURL(NSURL(string: tvFetched[indexPath.row].posterImagePath!), placeholderImage: UIImage(named: Constants.imageIdentifiers.placeHolderImage))
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifiers.requestedListTvCell) as! RequestedTypeTableViewCell
+        cell.customImageView.backgroundImageView.kf_setImageWithURL(URL(string: tvFetched[indexPath.row].posterImagePath!), placeholderImage: UIImage(named: Constants.imageIdentifiers.placeHolderImage))
         cell.cellInfo.text = tvFetched[indexPath.row].overView
         cell.customImageView.likeImageView.image=UIImage(named: Constants.imageIdentifiers.toBeLiked)
         cell.cellInfo.numberOfLines = 6
         return cell
         
     }
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //further code
     }
     

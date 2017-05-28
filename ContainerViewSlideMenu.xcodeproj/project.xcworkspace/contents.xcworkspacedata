@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:ContainerViewSlideMenu.xcodeproj">
+      location = "self:/Users/ShaktiSingh/Desktop/TheMovieDb-IOS-app/ContainerViewSlideMenu.xcodeproj">
    </FileRef>
 </Workspace>

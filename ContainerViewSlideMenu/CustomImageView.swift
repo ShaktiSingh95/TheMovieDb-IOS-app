@@ -15,7 +15,7 @@ import UIKit
     @IBOutlet weak var popularityLabel: UILabel!
     var id:Int!
     var likeStatus = false
-    private let defaults=NSUserDefaults.standardUserDefaults()
+    fileprivate let defaults=UserDefaults.standard
     var delegate:CustomImageViewDelegate!
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,14 +26,14 @@ import UIKit
         super.init(coder: aDecoder)
         setup()
     }
-    @IBAction func tapped(sender: AnyObject) {
+    @IBAction func tapped(_ sender: AnyObject) {
 
         
         print(id)
         self.invertLike()
         
     }
-    private func invertLike(){
+    fileprivate func invertLike(){
         
         if likeStatus == false{
             
@@ -52,15 +52,15 @@ import UIKit
         }
         
     }
-    private func setup(){
+    fileprivate func setup(){
         
-        let bundle = NSBundle(forClass: self.dynamicType)
+        let bundle = Bundle(for: type(of: self))
         let CustomImageViewNib = UINib(nibName: "CustomImageView", bundle: bundle)
         
-        let CustomImageViews = CustomImageViewNib.instantiateWithOwner(self, options: nil) as! [UIView]
+        let CustomImageViews = CustomImageViewNib.instantiate(withOwner: self, options: nil) as! [UIView]
         let firstView = CustomImageViews[0]
         
-        self.autoresizingMask = [UIViewAutoresizing.FlexibleHeight, UIViewAutoresizing.FlexibleWidth]
+        self.autoresizingMask = [UIViewAutoresizing.flexibleHeight, UIViewAutoresizing.flexibleWidth]
         
         self.addSubview(firstView)
     }

@@ -9,7 +9,7 @@
 import Foundation
 protocol CustomImageViewDelegate {
     
-    func saveDataForId(id:Int)
-    func deleteDataForId(id:Int)
+    func saveDataForId(_ id:Int)
+    func deleteDataForId(_ id:Int)
     
 }

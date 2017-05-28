@@ -36,14 +36,14 @@ class RequestedCelebsViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return celebsFetched.count
     }
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(Constants.cellIdentifiers.requestedListCelebsCell) as! RequestedTypeTableViewCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifiers.requestedListCelebsCell) as! RequestedTypeTableViewCell
         var moviesDone:String
         moviesDone = celebsFetched[indexPath.row].knownFor[0].title! + "," + celebsFetched[indexPath.row].knownFor[1].title! + "," + celebsFetched[indexPath.row].knownFor[2].title!
-        cell.customImageView.backgroundImageView.kf_setImageWithURL(NSURL(string: celebsFetched[indexPath.row].profileImagePath!), placeholderImage: UIImage(named: Constants.imageIdentifiers.placeHolderImage))
+        cell.customImageView.backgroundImageView.kf_setImageWithURL(URL(string: celebsFetched[indexPath.row].profileImagePath!), placeholderImage: UIImage(named: Constants.imageIdentifiers.placeHolderImage))
        // print(celebsFetched[indexPath.row].popularity!)
         cell.cellInfo.text = celebsFetched[indexPath.row].name! + "\nPopular Movies:\n" + moviesDone
         cell.cellInfo.numberOfLines = 6
@@ -52,10 +52,10 @@ class RequestedCelebsViewController: UITableViewController {
         return cell
         
     }
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let destinationVc = self.storyboard?.instantiateViewControllerWithIdentifier(Constants.viewControllerIdentifiers.celebDetailsVc) as! CelebdetailViewController
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let destinationVc = self.storyboard?.instantiateViewController(withIdentifier: Constants.viewControllerIdentifiers.celebDetailsVc) as! CelebdetailViewController
         destinationVc.celeb = self.celebsFetched[indexPath.row]
-        showViewController(destinationVc, sender: nil)
+        show(destinationVc, sender: nil)
     }
     
 }

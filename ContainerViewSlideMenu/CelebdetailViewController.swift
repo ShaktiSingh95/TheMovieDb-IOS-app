@@ -25,7 +25,7 @@ class CelebdetailViewController: UIViewController,UITableViewDelegate,UITableVie
         self.celebName.text=celeb.name!
         self.celebPopularity.text=String(celeb.popularity!)
         self.celebImdbId.text="czxc"
-        self.celebPoster.kf_setImageWithURL(NSURL(string: celeb.profileImagePath!), placeholderImage: UIImage(named:Constants.imageIdentifiers.placeHolderImage))
+        self.celebPoster.kf_setImageWithURL(URL(string: celeb.profileImagePath!), placeholderImage: UIImage(named:Constants.imageIdentifiers.placeHolderImage))
         self.popularMoviesTableView.dataSource=self
         self.popularMoviesTableView.delegate=self
         // Do any additional setup after loading the view.
@@ -37,18 +37,18 @@ class CelebdetailViewController: UIViewController,UITableViewDelegate,UITableVie
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.detailsView.frame.origin=CGPoint(x: 0,y: self.detailsView.frame.size.height*(-1))
         
     }
-    @IBAction func taped(sender: UITapGestureRecognizer) {
+    @IBAction func taped(_ sender: UITapGestureRecognizer) {
         
         let navigationBarHeight=self.navigationController?.navigationBar.frame.size.height
 
         if detailsState == false{
             
-            UIView.animateWithDuration(2, animations: {
+            UIView.animate(withDuration: 2, animations: {
                 
                 self.detailsView.frame.origin=CGPoint(x: self.view.frame.origin.x,y:navigationBarHeight!+self.view.frame.origin.y+20)
                 
@@ -60,7 +60,7 @@ class CelebdetailViewController: UIViewController,UITableViewDelegate,UITableVie
         }
         else{
             
-            UIView.animateWithDuration(2, animations: {
+            UIView.animate(withDuration: 2, animations: {
                 self.detailsView.frame.origin=CGPoint(x: self.view.frame.origin.x,y: self.view.frame.origin.y-136)
                 self.viewWithTableView.frame.origin=CGPoint(x: self.view.frame.origin.x,y: self.view.frame.maxY)}, completion: {handler in }
             
@@ -71,14 +71,14 @@ class CelebdetailViewController: UIViewController,UITableViewDelegate,UITableVie
     
     
 }
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return celeb.knownFor.count
     }
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(Constants.cellIdentifiers.celebKnownForCell) as! RequestedTypeTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifiers.celebKnownForCell) as! RequestedTypeTableViewCell
         cell.cellInfo.text = celeb.knownFor[indexPath.row].overview!
-        cell.customImageView.backgroundImageView.kf_setImageWithURL(NSURL(string: celeb.knownFor[indexPath.row].posterImagePath!), placeholderImage: UIImage(named:Constants.imageIdentifiers.placeHolderImage))
+        cell.customImageView.backgroundImageView.kf_setImageWithURL(URL(string: celeb.knownFor[indexPath.row].posterImagePath!), placeholderImage: UIImage(named:Constants.imageIdentifiers.placeHolderImage))
         cell.customImageView.popularityLabel.text=String(celeb.knownFor[indexPath.row].popularity!)
         cell.customImageView.likeImageView.image=UIImage(named: Constants.imageIdentifiers.toBeLiked)
         return cell

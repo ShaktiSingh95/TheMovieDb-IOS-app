@@ -12,7 +12,7 @@ class CelebsMainViewController: UIViewController,UICollectionViewDelegate,UIColl
     
     @IBOutlet weak var popularCelebsCollectionView: UICollectionView!
     @IBOutlet weak var celebsCategoriesTableView: UITableView!
-    private var tableContent = ["Popular"]
+    fileprivate var tableContent = ["Popular"]
     var popularCelebs = [Celeb](){
         
         didSet{
@@ -22,7 +22,7 @@ class CelebsMainViewController: UIViewController,UICollectionViewDelegate,UIColl
         }
         
     }
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.closeRight()
     }
@@ -40,27 +40,27 @@ class CelebsMainViewController: UIViewController,UICollectionViewDelegate,UIColl
         }
         
     }
-    func saveDataForId(id:Int){
+    func saveDataForId(_ id:Int){
         
         DataToBeSaved.appendToCelebsId(id)
         
         }
-    func deleteDataForId(id:Int){
+    func deleteDataForId(_ id:Int){
         
         
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return popularCelebs.count
     }
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.cellIdentifiers.celebsMainCollectionCell, forIndexPath: indexPath) as! CollectionViewCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifiers.celebsMainCollectionCell, for: indexPath) as! CollectionViewCell
         
         if let posterImageLink = popularCelebs[indexPath.row].profileImagePath{
             
-            cell.customImageView.backgroundImageView.kf_setImageWithURL(NSURL(string: posterImageLink), placeholderImage: placeHolderImage)
+            cell.customImageView.backgroundImageView.kf_setImageWithURL(URL(string: posterImageLink), placeholderImage: placeHolderImage)
             
         }
         if let name = popularCelebs[indexPath.row].name{
@@ -73,27 +73,27 @@ class CelebsMainViewController: UIViewController,UICollectionViewDelegate,UIColl
         
         return cell
     }
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     
-        let destinationVc = self.storyboard?.instantiateViewControllerWithIdentifier(Constants.viewControllerIdentifiers.celebDetailsVc) as! CelebdetailViewController
+        let destinationVc = self.storyboard?.instantiateViewController(withIdentifier: Constants.viewControllerIdentifiers.celebDetailsVc) as! CelebdetailViewController
         destinationVc.celeb = self.popularCelebs[indexPath.row]
-        showViewController(destinationVc, sender: nil)
+        show(destinationVc, sender: nil)
         
     
     }
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableContent.count
     }
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(Constants.cellIdentifiers.celebsMainTableCell)!
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifiers.celebsMainTableCell)!
         cell.textLabel?.text = tableContent[indexPath.row]
         return cell
     }
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let row = indexPath.row
-        let destinationVc = self.storyboard?.instantiateViewControllerWithIdentifier(Constants.viewControllerIdentifiers.requestedCelebsVc) as! RequestedCelebsViewController
+        let destinationVc = self.storyboard?.instantiateViewController(withIdentifier: Constants.viewControllerIdentifiers.requestedCelebsVc) as! RequestedCelebsViewController
         switch row{
             
         case 0 : destinationVc.query = Constants.ApiSearchQueries.CelebsRelated.popular
@@ -101,7 +101,7 @@ class CelebsMainViewController: UIViewController,UICollectionViewDelegate,UIColl
             
             
         }
-        self.showViewController(destinationVc, sender: nil)
+        self.show(destinationVc, sender: nil)
         
     }
     

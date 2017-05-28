@@ -15,9 +15,9 @@ class ErrorHandlerViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    class func showAlertViewController(alertVcTitle:Constants.alertPopupsOptions.titles,alertVcMessage:Constants.alertPopupsOptions.messages,actions:[UIAlertAction]){
+    class func showAlertViewController(_ alertVcTitle:Constants.alertPopupsOptions.titles,alertVcMessage:Constants.alertPopupsOptions.messages,actions:[UIAlertAction]){
         
-        let alertVc = UIAlertController(title: alertVcTitle.rawValue, message: alertVcMessage.rawValue, preferredStyle: .Alert)
+        let alertVc = UIAlertController(title: alertVcTitle.rawValue, message: alertVcMessage.rawValue, preferredStyle: .alert)
         for action in actions{
             
             alertVc.addAction(action)

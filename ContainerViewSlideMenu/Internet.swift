@@ -1,5 +1,5 @@
 import Foundation
-public class Internet {
+open class Internet {
     
     class func isConnectedToNetwork()->Bool{
         

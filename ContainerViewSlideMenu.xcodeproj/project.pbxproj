@@ -59,7 +59,7 @@
 		C37EF3CB1D5A14D5007881D8 /* Internet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Internet.swift; sourceTree = "<group>"; };
 		C38147341D5A45990099BDC5 /* ErrorHandlerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandlerViewController.swift; sourceTree = "<group>"; };
 		C388FDD81D63777B005824D3 /* CelebdetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CelebdetailViewController.swift; sourceTree = "<group>"; };
-		C38C9D141D47AA4B00FCDCC2 /* TheEntertainmentApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheEntertainmentApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C38C9D141D47AA4B00FCDCC2 /* ContainerViewSlideMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContainerViewSlideMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C38C9D171D47AA4B00FCDCC2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C38C9D1C1D47AA4B00FCDCC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C38C9D1E1D47AA4B00FCDCC2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -128,7 +128,7 @@
 		C38C9D151D47AA4B00FCDCC2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C38C9D141D47AA4B00FCDCC2 /* TheEntertainmentApp.app */,
+				C38C9D141D47AA4B00FCDCC2 /* ContainerViewSlideMenu.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -176,9 +176,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C38C9D131D47AA4B00FCDCC2 /* TheEntertainmentApp */ = {
+		C38C9D131D47AA4B00FCDCC2 /* ContainerViewSlideMenu */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C38C9D261D47AA4B00FCDCC2 /* Build configuration list for PBXNativeTarget "TheEntertainmentApp" */;
+			buildConfigurationList = C38C9D261D47AA4B00FCDCC2 /* Build configuration list for PBXNativeTarget "ContainerViewSlideMenu" */;
 			buildPhases = (
 				184B3D7DC5ECFA2A4D57E769 /* [CP] Check Pods Manifest.lock */,
 				C38C9D101D47AA4B00FCDCC2 /* Sources */,
@@ -191,9 +191,9 @@
 			);
 			dependencies = (
 			);
-			name = TheEntertainmentApp;
+			name = ContainerViewSlideMenu;
 			productName = ContainerViewSlideMenu;
-			productReference = C38C9D141D47AA4B00FCDCC2 /* TheEntertainmentApp.app */;
+			productReference = C38C9D141D47AA4B00FCDCC2 /* ContainerViewSlideMenu.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -208,10 +208,11 @@
 				TargetAttributes = {
 					C38C9D131D47AA4B00FCDCC2 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0830;
 					};
 				};
 			};
-			buildConfigurationList = C38C9D0F1D47AA4B00FCDCC2 /* Build configuration list for PBXProject "TheEntertainmentApp" */;
+			buildConfigurationList = C38C9D0F1D47AA4B00FCDCC2 /* Build configuration list for PBXProject "ContainerViewSlideMenu" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -224,7 +225,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C38C9D131D47AA4B00FCDCC2 /* TheEntertainmentApp */,
+				C38C9D131D47AA4B00FCDCC2 /* ContainerViewSlideMenu */,
 			);
 		};
 /* End PBXProject section */
@@ -271,7 +272,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		EC5FF7F5AE27C5A5648CEED1 /* [CP] Copy Pods Resources */ = {
@@ -443,7 +444,8 @@
 				INFOPLIST_FILE = ContainerViewSlideMenu/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = in.codekamp.ContainerViewSlideMenu;
-				PRODUCT_NAME = TheEntertainmentApp;
+				PRODUCT_NAME = ContainerViewSlideMenu;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -455,14 +457,15 @@
 				INFOPLIST_FILE = ContainerViewSlideMenu/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = in.codekamp.ContainerViewSlideMenu;
-				PRODUCT_NAME = TheEntertainmentApp;
+				PRODUCT_NAME = ContainerViewSlideMenu;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C38C9D0F1D47AA4B00FCDCC2 /* Build configuration list for PBXProject "TheEntertainmentApp" */ = {
+		C38C9D0F1D47AA4B00FCDCC2 /* Build configuration list for PBXProject "ContainerViewSlideMenu" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C38C9D241D47AA4B00FCDCC2 /* Debug */,
@@ -471,7 +474,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C38C9D261D47AA4B00FCDCC2 /* Build configuration list for PBXNativeTarget "TheEntertainmentApp" */ = {
+		C38C9D261D47AA4B00FCDCC2 /* Build configuration list for PBXNativeTarget "ContainerViewSlideMenu" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C38C9D271D47AA4B00FCDCC2 /* Debug */,

@@ -13,7 +13,7 @@ class TvMainViewController: UIViewController,UICollectionViewDelegate,UICollecti
     @IBOutlet weak var popularTvCollectionView: UICollectionView!
     @IBOutlet weak var tvCategoriesTableView: UITableView!
     
-    private var tableContent = ["Aired Today","On The Air","Latest","Top Rated","Most Popular"]
+    fileprivate var tableContent = ["Aired Today","On The Air","Latest","Top Rated","Most Popular"]
     
     var popularTvShows = [Tv](){
         
@@ -25,7 +25,7 @@ class TvMainViewController: UIViewController,UICollectionViewDelegate,UICollecti
         
     }
     var placeHolderImage = UIImage(named:Constants.imageIdentifiers.placeHolderImage)
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.closeRight()
     }
@@ -47,15 +47,15 @@ class TvMainViewController: UIViewController,UICollectionViewDelegate,UICollecti
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return popularTvShows.count
         //*** should return popualarTvShows.count when error is fixed ***
     }
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.cellIdentifiers.tvMainCollectionCell, forIndexPath: indexPath) as! CollectionViewCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifiers.tvMainCollectionCell, for: indexPath) as! CollectionViewCell
         if let posterImageLink = popularTvShows[indexPath.row].posterImagePath{
             
-            cell.customImageView.backgroundImageView.kf_setImageWithURL(NSURL(string: posterImageLink), placeholderImage: placeHolderImage)
+            cell.customImageView.backgroundImageView.kf_setImageWithURL(URL(string: posterImageLink), placeholderImage: placeHolderImage)
             
         }
         cell.customImageView.likeImageView.image=UIImage(named: Constants.imageIdentifiers.toBeLiked)
@@ -67,21 +67,21 @@ class TvMainViewController: UIViewController,UICollectionViewDelegate,UICollecti
         }
         return cell
     }
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     }
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableContent.count
     }
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(Constants.cellIdentifiers.tvMainTableCell)!
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifiers.tvMainTableCell)!
         cell.textLabel?.text = tableContent[indexPath.row]
         return cell
     }
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let row = indexPath.row
-        let destinationVc = self.storyboard?.instantiateViewControllerWithIdentifier(Constants.viewControllerIdentifiers.requestedTvVc) as! RequestedTvListViewController
+        let destinationVc = self.storyboard?.instantiateViewController(withIdentifier: Constants.viewControllerIdentifiers.requestedTvVc) as! RequestedTvListViewController
         switch row {
         case 0:
             destinationVc.query = Constants.ApiSearchQueries.TvRelated.airedToday
@@ -96,7 +96,7 @@ class TvMainViewController: UIViewController,UICollectionViewDelegate,UICollecti
         default:
             break
         }
-        self.showViewController(destinationVc, sender: nil)
+        self.show(destinationVc, sender: nil)
         
     }
     

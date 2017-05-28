@@ -12,11 +12,11 @@ import SwiftyJSON
 
 class AppModel{
     
-    private class func callIfNoConnectivity(){
+    fileprivate class func callIfNoConnectivity(){
         
         let setting = UIAlertAction(title: "GoTo Settings",style: .Default,handler: {
             handler in
-            UIApplication.sharedApplication().openURL(NSURL(string: UIApplicationOpenSettingsURLString)!)
+            UIApplication.sharedApplication().openURL(URL(string: UIApplicationOpenSettingsURLString)!)
         })
         let ok = UIAlertAction(title: "close",style: .Default,handler: nil)
         var actionsArray=[UIAlertAction]()
@@ -27,9 +27,9 @@ class AppModel{
     
     
     
-    class func fetchPerticularMovies(queryUrl:Constants.ApiSearchQueries.MovieRelated,handler: [Movie]->Void){
+    class func fetchPerticularMovies(_ queryUrl:Constants.ApiSearchQueries.MovieRelated,handler: @escaping ([Movie])->Void){
         if Internet.isConnectedToNetwork(){
-            let parameters:[String:AnyObject] = ["api_key": Constants.ApiSearchQueries.apiKey.rawValue]
+            let parameters:[String:AnyObject] = ["api_key": Constants.ApiSearchQueries.apiKey.rawValue as AnyObject]
             Alamofire.request(.GET, queryUrl.rawValue, parameters: parameters).responseJSON(){
                 
                 response in
@@ -51,9 +51,9 @@ class AppModel{
             AppModel.callIfNoConnectivity()
         }
     }
-    class func fetchPerticularTvShows(queryUrl:Constants.ApiSearchQueries.TvRelated,handler: [Tv]->Void){
+    class func fetchPerticularTvShows(_ queryUrl:Constants.ApiSearchQueries.TvRelated,handler: @escaping ([Tv])->Void){
         if(Internet.isConnectedToNetwork()){
-            let parameters:[String:AnyObject]=["api_key":Constants.ApiSearchQueries.apiKey.rawValue]
+            let parameters:[String:AnyObject]=["api_key":Constants.ApiSearchQueries.apiKey.rawValue as AnyObject]
             Alamofire.request(.GET, queryUrl.rawValue, parameters: parameters).responseJSON(){
                 
                 response in
@@ -69,9 +69,9 @@ class AppModel{
         else {
             AppModel.callIfNoConnectivity()
         }}
-    class func fetchPerticularCelebs(queryUrl:Constants.ApiSearchQueries.CelebsRelated,handler: [Celeb]->Void){
+    class func fetchPerticularCelebs(_ queryUrl:Constants.ApiSearchQueries.CelebsRelated,handler: @escaping ([Celeb])->Void){
         if Internet.isConnectedToNetwork() {
-            let parameters:[String:AnyObject]=["api_key":Constants.ApiSearchQueries.apiKey.rawValue]
+            let parameters:[String:AnyObject]=["api_key":Constants.ApiSearchQueries.apiKey.rawValue as AnyObject]
             Alamofire.request(.GET, queryUrl.rawValue, parameters: parameters).responseJSON(){
                 
                 response in
