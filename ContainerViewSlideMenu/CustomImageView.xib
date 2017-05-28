@@ -1,11 +1,15 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomImageView" customModule="TheEntertainmentApp" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomImageView" customModule="ContainerViewSlideMenu" customModuleProvider="target">
             <connections>
                 <outlet property="backgroundImageView" destination="IzE-Um-Mnt" id="xKv-Ca-zak"/>
                 <outlet property="likeImageView" destination="7he-i9-NV3" id="CiQ-bl-7Rb"/>
@@ -31,18 +35,15 @@
                         <constraint firstAttribute="height" constant="30" id="7dR-E8-du3"/>
                         <constraint firstAttribute="width" constant="30" id="ZOf-lc-GU9"/>
                     </constraints>
-                    <connections>
-                        <outletCollection property="gestureRecognizers" destination="Drt-x6-bsL" appends="YES" id="7WH-Dq-Duk"/>
-                    </connections>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="loading" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rKK-JE-Ru3">
                     <rect key="frame" x="0.0" y="137" width="149" height="21"/>
                     <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
-                    <color key="textColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="IzE-Um-Mnt" firstAttribute="top" secondItem="7he-i9-NV3" secondAttribute="top" id="CRg-mQ-LtY"/>
                 <constraint firstItem="rKK-JE-Ru3" firstAttribute="bottom" secondItem="IzE-Um-Mnt" secondAttribute="bottom" id="Gc1-o6-aIA"/>
@@ -55,11 +56,6 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="113.5" y="204"/>
         </view>
-        <tapGestureRecognizer id="Drt-x6-bsL">
-            <connections>
-                <action selector="tapped:" destination="-1" id="13J-Ct-KuT"/>
-            </connections>
-        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="placeHolderImage" width="225" height="225"/>

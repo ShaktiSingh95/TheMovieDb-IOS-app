@@ -25,7 +25,7 @@ class CelebdetailViewController: UIViewController,UITableViewDelegate,UITableVie
         self.celebName.text=celeb.name!
         self.celebPopularity.text=String(celeb.popularity!)
         self.celebImdbId.text="czxc"
-        self.celebPoster.kf_setImageWithURL(URL(string: celeb.profileImagePath!), placeholderImage: UIImage(named:Constants.imageIdentifiers.placeHolderImage))
+        self.celebPoster.kf.setImage(with: URL(string: celeb.profileImagePath!), placeholder: UIImage(named:Constants.imageIdentifiers.placeHolderImage))
         self.popularMoviesTableView.dataSource=self
         self.popularMoviesTableView.delegate=self
         // Do any additional setup after loading the view.
@@ -78,7 +78,7 @@ class CelebdetailViewController: UIViewController,UITableViewDelegate,UITableVie
         
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifiers.celebKnownForCell) as! RequestedTypeTableViewCell
         cell.cellInfo.text = celeb.knownFor[indexPath.row].overview!
-        cell.customImageView.backgroundImageView.kf_setImageWithURL(URL(string: celeb.knownFor[indexPath.row].posterImagePath!), placeholderImage: UIImage(named:Constants.imageIdentifiers.placeHolderImage))
+        cell.customImageView.backgroundImageView.kf.setImage(with: URL(string: celeb.knownFor[indexPath.row].posterImagePath!), placeholder: UIImage(named:Constants.imageIdentifiers.placeHolderImage))
         cell.customImageView.popularityLabel.text=String(celeb.knownFor[indexPath.row].popularity!)
         cell.customImageView.likeImageView.image=UIImage(named: Constants.imageIdentifiers.toBeLiked)
         return cell

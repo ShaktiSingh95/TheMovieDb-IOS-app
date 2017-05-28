@@ -21,10 +21,10 @@ class MovieViewController: SlideMenuController {
     }
     override func awakeFromNib(){
         
-        if let controller = self.storyboard?.instantiateViewControllerWithIdentifier(Constants.viewControllerIdentifiers.moviesMainVc) {
+        if let controller = self.storyboard?.instantiateViewController(withIdentifier: Constants.viewControllerIdentifiers.moviesMainVc) {
             self.mainViewController = controller
         }
-        if let controller = self.storyboard?.instantiateViewControllerWithIdentifier(Constants.viewControllerIdentifiers.rightSliderVc) {
+        if let controller = self.storyboard?.instantiateViewController(withIdentifier: Constants.viewControllerIdentifiers.rightSliderVc) {
             self.rightViewController = controller
         }
         super.awakeFromNib()

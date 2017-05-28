@@ -9,7 +9,14 @@
 import UIKit
 
 class RequestedMovieListViewController: UITableViewController,CustomImageViewDelegate {
-    
+    func saveDataForId(_ id: Int) {
+        
+    }
+
+    func deleteDataForId(_ id:Int)
+    {
+        
+    }
     var query : Constants.ApiSearchQueries.MovieRelated!
     @IBOutlet var movieListTableView: UITableView!
     var moviesFetched = [Movie](){
@@ -44,7 +51,7 @@ class RequestedMovieListViewController: UITableViewController,CustomImageViewDel
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifiers.requestedListMovieCell) as! RequestedTypeTableViewCell
-        cell.customImageView.backgroundImageView.kf_setImageWithURL(URL(string: moviesFetched[indexPath.row].posterImagePath!), placeholderImage: UIImage(named: Constants.imageIdentifiers.placeHolderImage))
+        cell.customImageView.backgroundImageView.kf.setImage(with: URL(string: moviesFetched[indexPath.row].posterImagePath!), placeholder: UIImage(named: Constants.imageIdentifiers.placeHolderImage))
         cell.cellInfo.text = moviesFetched[indexPath.row].overview
         cell.cellInfo.numberOfLines = 6
         return cell

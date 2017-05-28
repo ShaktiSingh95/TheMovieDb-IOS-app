@@ -8,8 +8,13 @@
 
 import UIKit
 import Kingfisher
-class HomeMainViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
-    
+class HomeMainViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,CustomImageViewDelegate {
+    func saveDataForId(_ id:Int){
+        
+    }
+    func deleteDataForId(_ id:Int){
+        
+    }
     @IBOutlet weak var popularMoviesCollectionView: UICollectionView!
     
     @IBOutlet weak var popularTvShowsCollectionView: UICollectionView!
@@ -114,8 +119,7 @@ class HomeMainViewController: UIViewController,UICollectionViewDelegate,UICollec
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifiers.homePopularCelebsCell, for: indexPath) as! CollectionViewCell
             //cell.imageView.kf_setImageWithURL(NSURL(string: popularCelebs[indexPath.row].profileImagePath!), placeholderImage: placeHolderImage)
             if let posterImageLink = popularCelebs[indexPath.row].profileImagePath{
-                
-                cell.customImageView.backgroundImageView.kf_setImageWithURL(URL(string: posterImageLink), placeholderImage: placeHolderImage)
+                cell.customImageView.backgroundImageView.kf.setImage(with: URL(string: posterImageLink), placeholder: placeHolderImage)
             
             }
             if let name = popularCelebs[indexPath.row].name{
@@ -125,7 +129,7 @@ class HomeMainViewController: UIViewController,UICollectionViewDelegate,UICollec
             }
             cell.customImageView.likeImageView.image=UIImage(named: Constants.imageIdentifiers.toBeLiked)
            cell.customImageView.id=popularCelebs[indexPath.row].id
-            cell.customImageView.delegate=self as! CustomImageViewDelegate
+            cell.customImageView.delegate=self
             return cell
             
         }
@@ -134,8 +138,7 @@ class HomeMainViewController: UIViewController,UICollectionViewDelegate,UICollec
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifiers.homePopularMovieCell, for: indexPath) as! CollectionViewCell
             
             if let posterImageLink =  popularMovies[indexPath.row].posterImagePath{
-                
-                cell.customImageView.backgroundImageView.kf_setImageWithURL(URL(string:posterImageLink), placeholderImage: placeHolderImage)
+                cell.customImageView.backgroundImageView.kf.setImage(with: URL(string:posterImageLink), placeholder: placeHolderImage)
             
             }
             cell.customImageView.likeImageView.image=UIImage(named: Constants.imageIdentifiers.toBeLiked)
@@ -153,8 +156,7 @@ cell.customImageView.id=popularMovies[indexPath.row].id
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifiers.homePopularTvCell, for: indexPath) as! CollectionViewCell
             if let posterImageLink = popularTvShows[indexPath.row].posterImagePath{
-            
-            cell.customImageView.backgroundImageView.kf_setImageWithURL(URL(string: posterImageLink), placeholderImage: placeHolderImage)
+            cell.customImageView.backgroundImageView.kf.setImage(with: URL(string: posterImageLink), placeholder: placeHolderImage)
                 
             }
             cell.customImageView.likeImageView.image=UIImage(named: Constants.imageIdentifiers.toBeLiked)

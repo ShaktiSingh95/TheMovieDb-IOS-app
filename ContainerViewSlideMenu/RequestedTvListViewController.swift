@@ -47,7 +47,7 @@ class RequestedTvListViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifiers.requestedListTvCell) as! RequestedTypeTableViewCell
-        cell.customImageView.backgroundImageView.kf_setImageWithURL(URL(string: tvFetched[indexPath.row].posterImagePath!), placeholderImage: UIImage(named: Constants.imageIdentifiers.placeHolderImage))
+        cell.customImageView.backgroundImageView.kf.setImage(with: URL(string: tvFetched[indexPath.row].posterImagePath!), placeholder: UIImage(named: Constants.imageIdentifiers.placeHolderImage))
         cell.cellInfo.text = tvFetched[indexPath.row].overView
         cell.customImageView.likeImageView.image=UIImage(named: Constants.imageIdentifiers.toBeLiked)
         cell.cellInfo.numberOfLines = 6

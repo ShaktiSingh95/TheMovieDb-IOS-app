@@ -43,7 +43,7 @@ class RequestedCelebsViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifiers.requestedListCelebsCell) as! RequestedTypeTableViewCell
         var moviesDone:String
         moviesDone = celebsFetched[indexPath.row].knownFor[0].title! + "," + celebsFetched[indexPath.row].knownFor[1].title! + "," + celebsFetched[indexPath.row].knownFor[2].title!
-        cell.customImageView.backgroundImageView.kf_setImageWithURL(URL(string: celebsFetched[indexPath.row].profileImagePath!), placeholderImage: UIImage(named: Constants.imageIdentifiers.placeHolderImage))
+        cell.customImageView.backgroundImageView.kf.setImage(with: URL(string: celebsFetched[indexPath.row].profileImagePath!), placeholder: UIImage(named: Constants.imageIdentifiers.placeHolderImage))
        // print(celebsFetched[indexPath.row].popularity!)
         cell.cellInfo.text = celebsFetched[indexPath.row].name! + "\nPopular Movies:\n" + moviesDone
         cell.cellInfo.numberOfLines = 6

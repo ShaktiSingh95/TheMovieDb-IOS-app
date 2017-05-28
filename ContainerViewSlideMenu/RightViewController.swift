@@ -40,7 +40,7 @@ class rightViewController: UITableViewController {
             else{
                 let destinationVc = self.storyboard?.instantiateViewController(withIdentifier: Constants.viewControllerIdentifiers.homeVc) as! HomeViewController
                 
-                showViewController(destinationVc, sender: nil)
+                show(destinationVc, sender: nil)
                 
             }
         }
@@ -52,7 +52,7 @@ class rightViewController: UITableViewController {
             }
             else{
                 let destinationVc = self.storyboard?.instantiateViewController(withIdentifier: Constants.viewControllerIdentifiers.moviesVc) as! MovieViewController
-                showViewController(destinationVc, sender: nil)
+                show(destinationVc, sender: nil)
                 
             }
             
@@ -67,7 +67,7 @@ class rightViewController: UITableViewController {
             }
             else{
             let destinationVc = self.storyboard?.instantiateViewController(withIdentifier: Constants.viewControllerIdentifiers.tvVc) as! TvViewController
-            showViewController(destinationVc, sender: nil)
+            show(destinationVc, sender: nil)
             }
             
         }
@@ -80,7 +80,7 @@ class rightViewController: UITableViewController {
             }
             else{
                 let destinationVc = self.storyboard?.instantiateViewController(withIdentifier: Constants.viewControllerIdentifiers.celebsVc) as! CelebsViewController
-                showViewController(destinationVc, sender: nil)
+                show(destinationVc, sender: nil)
             }
             
             

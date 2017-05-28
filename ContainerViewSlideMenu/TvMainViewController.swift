@@ -54,8 +54,7 @@ class TvMainViewController: UIViewController,UICollectionViewDelegate,UICollecti
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifiers.tvMainCollectionCell, for: indexPath) as! CollectionViewCell
         if let posterImageLink = popularTvShows[indexPath.row].posterImagePath{
-            
-            cell.customImageView.backgroundImageView.kf_setImageWithURL(URL(string: posterImageLink), placeholderImage: placeHolderImage)
+            cell.customImageView.backgroundImageView.kf.setImage(with: URL(string: posterImageLink), placeholder: placeHolderImage)
             
         }
         cell.customImageView.likeImageView.image=UIImage(named: Constants.imageIdentifiers.toBeLiked)

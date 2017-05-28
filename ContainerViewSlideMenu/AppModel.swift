@@ -14,11 +14,11 @@ class AppModel{
     
     fileprivate class func callIfNoConnectivity(){
         
-        let setting = UIAlertAction(title: "GoTo Settings",style: .Default,handler: {
+        let setting = UIAlertAction(title: "GoTo Settings",style: .default,handler: {
             handler in
-            UIApplication.sharedApplication().openURL(URL(string: UIApplicationOpenSettingsURLString)!)
+            UIApplication.shared.openURL(URL(string: UIApplicationOpenSettingsURLString)!)
         })
-        let ok = UIAlertAction(title: "close",style: .Default,handler: nil)
+        let ok = UIAlertAction(title: "close",style: .default,handler: nil)
         var actionsArray=[UIAlertAction]()
         actionsArray.append(setting)
         actionsArray.append(ok)
@@ -30,7 +30,7 @@ class AppModel{
     class func fetchPerticularMovies(_ queryUrl:Constants.ApiSearchQueries.MovieRelated,handler: @escaping ([Movie])->Void){
         if Internet.isConnectedToNetwork(){
             let parameters:[String:AnyObject] = ["api_key": Constants.ApiSearchQueries.apiKey.rawValue as AnyObject]
-            Alamofire.request(.GET, queryUrl.rawValue, parameters: parameters).responseJSON(){
+            Alamofire.request(queryUrl.rawValue, method: .get, parameters: parameters).responseJSON(){
                 
                 response in
                 var movies = [Movie]()
@@ -54,7 +54,7 @@ class AppModel{
     class func fetchPerticularTvShows(_ queryUrl:Constants.ApiSearchQueries.TvRelated,handler: @escaping ([Tv])->Void){
         if(Internet.isConnectedToNetwork()){
             let parameters:[String:AnyObject]=["api_key":Constants.ApiSearchQueries.apiKey.rawValue as AnyObject]
-            Alamofire.request(.GET, queryUrl.rawValue, parameters: parameters).responseJSON(){
+            Alamofire.request(queryUrl.rawValue, method: .get, parameters: parameters).responseJSON(){
                 
                 response in
                 var tvShows = [Tv]()
@@ -72,7 +72,7 @@ class AppModel{
     class func fetchPerticularCelebs(_ queryUrl:Constants.ApiSearchQueries.CelebsRelated,handler: @escaping ([Celeb])->Void){
         if Internet.isConnectedToNetwork() {
             let parameters:[String:AnyObject]=["api_key":Constants.ApiSearchQueries.apiKey.rawValue as AnyObject]
-            Alamofire.request(.GET, queryUrl.rawValue, parameters: parameters).responseJSON(){
+            Alamofire.request(queryUrl.rawValue, method: .get, parameters: parameters).responseJSON(){
                 
                 response in
                 
